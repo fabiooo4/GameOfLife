@@ -18,6 +18,10 @@ class Cell {
     previous = state;
   }
 
+  void newState(int newState) {
+    state = newState;
+  }
+
   void display() {
     if(state == 1) {
       fill(255);

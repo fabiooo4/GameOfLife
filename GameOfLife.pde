@@ -9,4 +9,5 @@ void setup() {
 void draw() {
   background(#161c28);
   gol.display();
+  gol.generate();
 }
