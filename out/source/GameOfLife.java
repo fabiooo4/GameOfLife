@@ -26,7 +26,9 @@ public void setup() {
   fill(255);
   textSize(30);
   textAlign(CENTER);
-  text("Press any key to play or pause the simulation", width/2, height/2);
+  text("Press spacebar to play or pause the simulation", width/2, height/2);
+  text("Press right arrow increment one generation", width/2, height/2 + 35);
+
   
   frameRate(30);
   gol = new GOL();
@@ -40,7 +42,14 @@ public void draw() {
 }
 
 public void keyPressed() {
-  play = !play;
+  if(key == ' ') {
+    play = !play;
+  } else if (key == CODED) {
+    if (keyCode == RIGHT) {
+      gol.display();
+      gol.generate();
+    }
+  } 
 }
 class Cell {
   int x;
@@ -140,7 +149,7 @@ class GOL {
 }
 
 
-  public void settings() { size(800, 800); }
+  public void settings() { size(900, 900); }
 
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "GameOfLife" };
