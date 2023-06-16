@@ -23,11 +23,22 @@ class Cell {
   }
 
   void display() {
-    if(state == 1) {
+    // if(state == 1) {
+    //   fill(255);
+    // } else {
+    //   fill(#161c28);
+    // }
+
+    if(previous == 1 && state == 1) { // Stall
       fill(255);
-    } else {
+    } else if (previous == 0 && state == 1){ // Birth
+      fill(#B1DCFF);
+    } else if (previous == 1 && state == 0) { // Death
+      fill(#271625);
+    } else { // Background
       fill(#161c28);
     }
+
     noStroke();
     rect(x, y, size, size);
   }
