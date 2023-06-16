@@ -16,17 +16,31 @@ import java.io.IOException;
 public class GameOfLife extends PApplet {
 
 GOL gol;
+boolean play = false;
 
 public void setup() {
-  background(0xFF161C28);
   /* size commented out by preprocessor */;
+  background(0xFF161C28);
+
+  rectMode(CENTER);
+  fill(255);
+  textSize(30);
+  textAlign(CENTER);
+  text("Press any key to play or pause the simulation", width/2, height/2);
+  
+  frameRate(30);
   gol = new GOL();
 }
 
-public void draw() {
-  background(0xFF161C28);
-  gol.display();
-  gol.generate();
+public void draw() {  
+  if (play) {
+    gol.display();
+    gol.generate();
+  }
+}
+
+public void keyPressed() {
+  play = !play;
 }
 class Cell {
   int x;
@@ -63,7 +77,7 @@ class Cell {
   }
 }
 class GOL {
-  int size = 20;
+  int size = 10;
   int cols;
   int rows;
 

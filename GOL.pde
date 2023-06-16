@@ -1,5 +1,5 @@
 class GOL {
-  int size = 20;
+  int size = 10;
   int cols;
   int rows;
 
